@@ -62,7 +62,7 @@ const translations = {
         pref_header: "මනාපයන්",
         pref_lang: "භාෂාව",
         site_progress: "මෙම වෙබ් අඩවිය නිර්මාණය වෙමින් පවතී.",
-        footer_rights: "© 2026, චනිතු සහ නිකී182. සියලුම හිමිකම් ඇවිරිණි."
+        footer_rights: "© 2026, චනිතු සහ Niki182. සියලුම හිමිකම් ඇවිරිණි."
     }
 };
 
