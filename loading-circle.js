@@ -9,3 +9,5 @@ window.addEventListener('load', () => {
         loader.remove();
     }, { once: true });
 });
+
+// fixed loader
