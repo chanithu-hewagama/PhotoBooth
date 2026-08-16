@@ -34,7 +34,25 @@ const translations = {
         pref_header: "Präferenzen",
         pref_lang: "Sprache",
         site_progress: "Diese Website befindet sich im Aufbau.",
+        footer_rights: "© 2026, சனித்து மற்றும் நிக்கி182. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+    },
+    ta: {
+        nav_home: "முகப்பு",
+        nav_download: "பதிவிறக்கம்",
+        nav_settings: "அமைப்புகள்",
+        pref_header: "விருப்பத்தேர்வுகள்",
+        pref_lang: "மொழி",
+        site_progress: "இந்த இணையதளம் உருவாக்கத்தில் உள்ளது.",
         footer_rights: "© 2026, Chanithu und Niki182. Alle Rechte vorbehalten."
+    },
+    ja: {
+        nav_home: "ホームページ",
+        nav_download: "ダウンロード",
+        nav_settings: "設定",
+        pref_header: "設定",
+        pref_lang: "言語",
+        site_progress: "このウェブサイトは現在制作中です。",
+        footer_rights: "© 2026 Chanithu および Niki182。無断複写・転載を禁じます。"
     }
 };
 
