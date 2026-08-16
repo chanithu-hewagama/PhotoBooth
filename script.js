@@ -72,6 +72,15 @@ const translations = {
         pref_lang: "Langue",
         site_progress: "Ce site web est en cours d'élaboration.",
         footer_rights: "© 2026, Chanithu et Niki182. Tous droits réservés."
+    },
+    am: {
+        nav_home: "መነሻ ገጽ",
+        nav_download: "ያውርዱ",
+        nav_settings: "ማስተካከያዎች",
+        pref_header: "ራስጌ",
+        pref_lang: "ቋንቋ",
+        site_progress: "ይህ ድረ-ገጽ በመገንባት ላይ ነው።",
+        footer_rights: "© 2026፣ ቻኒቱ እና ኒኪ182። መብቱ በህግ የተጠበቀ ነው።."
     }
 };
 
