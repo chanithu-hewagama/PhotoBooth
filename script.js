@@ -1,105 +1,78 @@
-// Translation Dataset Matrix
-// nice job on the translations!
-const translations = {
-    en: {
-        nav_home: "Home",
-        nav_download: "Download",
-        nav_settings: "Settings",
-        pref_header: "Preferences",
-        pref_lang: "Language",
-        site_progress: "This website is in progress.",
-        footer_rights: "© 2026, Chanithu and Niki182. All rights reserved."
-    },
-    es: {
-        nav_home: "Inicio",
-        nav_download: "Descargar",
-        nav_settings: "Ajustes",
-        pref_header: "Preferencias",
-        pref_lang: "Idioma",
-        site_progress: "Este sitio web está en progreso.",
-        footer_rights: "© 2026, Chanithu y Niki182. Todos los derechos reservados."
-    },
-    fr: {
-        nav_home: "Accueil",
-        nav_download: "Télécharger",
-        nav_settings: "Paramètres",
-        pref_header: "Préférences",
-        pref_lang: "Langue",
-        site_progress: "Ce site web est en cours de développement.",
-        footer_rights: "© 2026, Chanithu et Niki182. Tous droits réservés."
-    },
-    de: {
-        nav_home: "Startseite",
-        nav_download: "Herunterladen",
-        nav_settings: "Einstellungen",
-        pref_header: "Präferenzen",
-        pref_lang: "Sprache",
-        site_progress: "Diese Website befindet sich im Aufbau.",
-        footer_rights: "© 2026, Chanithu und Niki182. Alle Rechte vorbehalten."
-    },
-    ta: {
-        nav_home: "முகப்பு",
-        nav_download: "பதிவிறக்கம்",
-        nav_settings: "அமைப்புகள்",
-        pref_header: "விருப்பத்தேர்வுகள்",
-        pref_lang: "மொழி",
-        site_progress: "இந்த இணையதளம் உருவாக்கத்தில் உள்ளது.",
-        footer_rights: "© 2026, சனித்து மற்றும் நிக்கி182. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
-    },
-    ja: {
-        nav_home: "ホームページ",
-        nav_download: "ダウンロード",
-        nav_settings: "設定",
-        pref_header: "設定",
-        pref_lang: "言語",
-        site_progress: "このウェブサイトは現在制作中です。",
-        footer_rights: "© 2026 Chanithu および Niki182。無断複写・転載を禁じます。"
-    },
-    sn: {
-        nav_home: "මුල් පිටුව",
-        nav_download: "භාගත කරන්න",
-        nav_settings: "සැකසුම්",
-        pref_header: "මනාපයන්",
-        pref_lang: "භාෂාව",
-        site_progress: "මෙම වෙබ් අඩවිය නිර්මාණය වෙමින් පවතී.",
-        footer_rights: "© 2026, චනිතු සහ Niki182. සියලුම හිමිකම් ඇවිරිණි."
-    },
-    fr: {
-        nav_home: "Accueil",
-        nav_download: "Télécharger",
-        nav_settings: "Paramètres",
-        pref_header: "Préférences",
-        pref_lang: "Langue",
-        site_progress: "Ce site web est en cours d'élaboration.",
-        footer_rights: "© 2026, Chanithu et Niki182. Tous droits réservés."
-    },
-    am: {
-        nav_home: "መነሻ ገጽ",
-        nav_download: "ያውርዱ",
-        nav_settings: "ማስተካከያዎች",
-        pref_header: "ራስጌ",
-        pref_lang: "ቋንቋ",
-        site_progress: "ይህ ድረ-ገጽ በመገንባት ላይ ነው።",
-        footer_rights: "© 2026፣ ቻኒቱ እና ኒኪ182። መብቱ በህግ የተጠበቀ ነው።."
-    }
-};
+// A reliable, open-source LibreTranslate mirror endpoint node to pipe text translation requests
+const TRANSLATION_API_URL = "https://argosopenteach.com";
 
-// Core Translation Target Iterator Engine
-function applyTranslations(lang) {
-    const translatableElements = document.querySelectorAll('.translatable');
-    
-    translatableElements.forEach(element => {
-        const key = element.getAttribute('data-key');
-        
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-
-    document.documentElement.lang = lang;
+/**
+ * Normalizes custom dropdown values to strict API ISO-639-1 language codes
+ */
+function getApiLangCode(lang) {
+    const languageMap = {
+        'sn': 'si', // Maps Sinhala to official ISO code 'si'
+        'am': 'am', // Amharic
+        'ar': 'ar'  // Arabic
+    };
+    return languageMap[lang] || lang;
 }
 
-// Enclosing initial state routines inside a try block isolates contextual execution crashes
+/**
+ * Asynchronously communicates with the translation engine API 
+ * to fetch localized string conversions for target components.
+ */
+async function translateText(text, targetLang) {
+    const apiLang = getApiLangCode(targetLang);
+    try {
+        const response = await fetch(TRANSLATION_API_URL, {
+            method: "POST",
+            body: JSON.stringify({
+                q: text,
+                source: "auto", // Automatically analyzes the string context block
+                target: apiLang,
+                format: "text"
+            }),
+            headers: { "Content-Type": "application/json" }
+        });
+
+        if (!response.ok) throw new Error(`Server returned error status code: ${response.status}`);
+        
+        const data = await response.json();
+        return data.translatedText;
+    } catch (error) {
+        console.error("API Fetch execution failure:", error);
+        return text; // Graceful structural fallback: shows original English string
+    }
+}
+
+/**
+ * Sweeps through all structural translatable items and updates their content 
+ * using asynchronous network promises.
+ */
+async function applyTranslations(lang) {
+    const translatableElements = document.querySelectorAll('.translatable');
+    
+    // Process all element changes concurrently using map arrays
+    const translationPromises = Array.from(translatableElements).map(async (element) => {
+        // Cache the pristine original English value on the first load so we never double-translate
+        if (!element.hasAttribute('data-original-text')) {
+            element.setAttribute('data-original-text', element.textContent.trim());
+        }
+        
+        const originalText = element.getAttribute('data-original-text');
+        
+        // If the user chooses English, load the original content directly without unnecessary API network overhead
+        if (lang === 'en') {
+            element.textContent = originalText;
+            return;
+        }
+
+        element.textContent = "..."; // Display loading state indicator placeholders
+        const translatedResult = await translateText(originalText, lang);
+        element.textContent = translatedResult;
+    });
+
+    await Promise.all(translationPromises);
+    document.documentElement.lang = getApiLangCode(lang);
+}
+
+// Initial state execution configuration
 try {
     const languageSelector = document.getElementById('nav-lang');
 
@@ -108,13 +81,13 @@ try {
         languageSelector.value = savedLanguage;
         applyTranslations(savedLanguage);
 
-        languageSelector.addEventListener('change', (event) => {
+        languageSelector.addEventListener('change', async (event) => {
             const selectedLang = event.target.value;
             localStorage.setItem('photoBoothLang', selectedLang);
-            applyTranslations(selectedLang);
+            await applyTranslations(selectedLang);
         });
     } else {
-        console.warn("Language selector element (#nav-lang) missing from this view layout structural tree.");
+        console.warn("Language selector node (#nav-lang) missing from view structural tree layout.");
     }
 } catch (error) {
     console.error("Translation routine encountered initialization anomalies:", error);
