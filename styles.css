@@ -45,4 +45,6 @@ body {
   background-color: #383b4f;
   padding: 10px 20px;
   gap: 25px;
+  width: 98%;
+  margin: 0 auto;
 }
