@@ -41,10 +41,9 @@ body {
 
 /* end of navbar lol*/
 .web-body {
+  background-color: #383b4f;
   border: 5px solid rgba(175, 175, 175, 0.508);
   width: 98%;
   height: auto;
   margin: 0 auto;
-  text-shadow: 2px 2px 4px rgb(0, 0, 0);
-  text-decoration: none;
 }
