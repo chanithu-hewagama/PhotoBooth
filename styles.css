@@ -5,6 +5,15 @@ body {
   color: white;
 }
 
+body:not(.navbar) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
 /* navbar */
 .navbar {
   display: flex;
