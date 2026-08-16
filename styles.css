@@ -29,6 +29,7 @@ body {
 .nav-links a:hover {
   color: cyan;
   text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.46);
 }
 
 .logo {
