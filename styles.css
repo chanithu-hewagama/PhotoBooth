@@ -5,13 +5,6 @@ body {
   color: white;
 }
 
-body:not(.navbar) {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
 /* navbar */
 .navbar {
   display: flex;
