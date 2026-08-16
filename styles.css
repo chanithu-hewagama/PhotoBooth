@@ -41,6 +41,7 @@ body {
 
 /* end of navbar lol*/
 .web-body {
+  padding: 7px;
   background-color: #383b4f;
   width: 98%;
   height: auto;
