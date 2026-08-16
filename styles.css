@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #282A36;
 }
 
 /* navbar */
@@ -8,18 +9,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #005aeb;
+  background-color: #44475A;
   color: white;
   padding: 15px 30px;
 }
 
 .nav-links {
-  background-color: #005aeb;
   list-style: none;
   display: flex;
   gap: 25px;
   margin: 0;
-  padding: 30px;
+  padding: 0px;
 }
 
 .nav-links a {
@@ -30,7 +30,6 @@ body {
 .nav-links a:hover {
   color: cyan;
   text-decoration: underline;
-  background-color: rgba(0, 0, 0, 0.46);
 }
 
 .logo {
