@@ -34,7 +34,7 @@ const translations = {
         pref_header: "Präferenzen",
         pref_lang: "Sprache",
         site_progress: "Diese Website befindet sich im Aufbau.",
-        footer_rights: "© 2026, சனித்து மற்றும் நிக்கி182. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+        footer_rights: "© 2026, Chanithu und Niki182. Alle Rechte vorbehalten."
     },
     ta: {
         nav_home: "முகப்பு",
@@ -43,7 +43,7 @@ const translations = {
         pref_header: "விருப்பத்தேர்வுகள்",
         pref_lang: "மொழி",
         site_progress: "இந்த இணையதளம் உருவாக்கத்தில் உள்ளது.",
-        footer_rights: "© 2026, Chanithu und Niki182. Alle Rechte vorbehalten."
+        footer_rights: "© 2026, சனித்து மற்றும் நிக்கி182. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவ"
     },
     ja: {
         nav_home: "ホームページ",
