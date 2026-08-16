@@ -53,22 +53,23 @@ function applyTranslations(lang) {
     document.documentElement.lang = lang;
 }
 
-// Immediate Execution (Safe to call directly because script has 'defer' attribute)
-const languageSelector = document.getElementById('nav-lang');
+// Enclosing initial state routines inside a try block isolates contextual execution crashes
+try {
+    const languageSelector = document.getElementById('nav-lang');
 
-if (languageSelector) {
-    // Load previously saved language preference or fallback to English
-    const savedLanguage = localStorage.getItem('photoBoothLang') || 'en';
-    
-    languageSelector.value = savedLanguage;
-    applyTranslations(savedLanguage);
+    if (languageSelector) {
+        const savedLanguage = localStorage.getItem('photoBoothLang') || 'en';
+        languageSelector.value = savedLanguage;
+        applyTranslations(savedLanguage);
 
-    // Watch selector box for changes
-    languageSelector.addEventListener('change', (event) => {
-        const selectedLang = event.target.value;
-        localStorage.setItem('photoBoothLang', selectedLang);
-        applyTranslations(selectedLang);
-    });
-} else {
-    console.error("Language selector element (#nav-lang) was not found in the DOM.");
+        languageSelector.addEventListener('change', (event) => {
+            const selectedLang = event.target.value;
+            localStorage.setItem('photoBoothLang', selectedLang);
+            applyTranslations(selectedLang);
+        });
+    } else {
+        console.warn("Language selector element (#nav-lang) missing from this view layout structural tree.");
+    }
+} catch (error) {
+    console.error("Translation routine encountered initialization anomalies:", error);
 }
