@@ -19,7 +19,7 @@ body {
   display: flex;
   gap: 25px;
   margin: 0;
-  padding: 0 30px;
+  padding: 30px;
 }
 
 .nav-links a {
