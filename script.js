@@ -63,6 +63,15 @@ const translations = {
         pref_lang: "භාෂාව",
         site_progress: "මෙම වෙබ් අඩවිය නිර්මාණය වෙමින් පවතී.",
         footer_rights: "© 2026, චනිතු සහ Niki182. සියලුම හිමිකම් ඇවිරිණි."
+    },
+    fr: {
+        nav_home: "Accueil",
+        nav_download: "Télécharger",
+        nav_settings: "Paramètres",
+        pref_header: "Préférences",
+        pref_lang: "Langue",
+        site_progress: "Ce site web est en cours d'élaboration.",
+        footer_rights: "© 2026, Chanithu et Niki182. Tous droits réservés."
     }
 };
 
