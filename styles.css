@@ -42,9 +42,9 @@ body {
 /* end of navbar lol*/
 .web-body {
   margin-top: 15;
-  padding-top: 10px;
   background-color: #383b4f;
   gap: 25px;
   width: 98%;
+  margin: 0 auto;
   height: auto;
 }
