@@ -1,44 +1,18 @@
-// A reliable, open-source LibreTranslate mirror endpoint node to pipe text translation requests
-const TRANSLATION_API_URL = "https://argosopenteach.com";
+// Import the translation engine directly from the jsDelivr CDN link
+import translate from "https://cdn.jsdelivr.net/npm/translate/index.min.js";
+
+// Optional: You can specify a backup engine like "google" or "deepl" if you have a key,
+// but leaving it blank or setting it to "libre" runs on free open mirrors automatically.
+translate.engine = "libre"; 
 
 /**
- * Normalizes custom dropdown values to strict API ISO-639-1 language codes
+ * Normalizes custom dropdown values to strict ISO language codes
  */
 function getApiLangCode(lang) {
     const languageMap = {
-        'sn': 'si', // Maps Sinhala to official ISO code 'si'
-        'am': 'am', // Amharic
-        'ar': 'ar'  // Arabic
+        'sn': 'si' // Maps Sinhala to official ISO code 'si' for the library
     };
     return languageMap[lang] || lang;
-}
-
-/**
- * Asynchronously communicates with the translation engine API 
- * to fetch localized string conversions for target components.
- */
-async function translateText(text, targetLang) {
-    const apiLang = getApiLangCode(targetLang);
-    try {
-        const response = await fetch(TRANSLATION_API_URL, {
-            method: "POST",
-            body: JSON.stringify({
-                q: text,
-                source: "auto", // Automatically analyzes the string context block
-                target: apiLang,
-                format: "text"
-            }),
-            headers: { "Content-Type": "application/json" }
-        });
-
-        if (!response.ok) throw new Error(`Server returned error status code: ${response.status}`);
-        
-        const data = await response.json();
-        return data.translatedText;
-    } catch (error) {
-        console.error("API Fetch execution failure:", error);
-        return text; // Graceful structural fallback: shows original English string
-    }
 }
 
 /**
@@ -47,6 +21,7 @@ async function translateText(text, targetLang) {
  */
 async function applyTranslations(lang) {
     const translatableElements = document.querySelectorAll('.translatable');
+    const apiLang = getApiLangCode(lang);
     
     // Process all element changes concurrently using map arrays
     const translationPromises = Array.from(translatableElements).map(async (element) => {
@@ -57,19 +32,34 @@ async function applyTranslations(lang) {
         
         const originalText = element.getAttribute('data-original-text');
         
-        // If the user chooses English, load the original content directly without unnecessary API network overhead
+        // If the user chooses English, load the original content directly without network overhead
         if (lang === 'en') {
             element.textContent = originalText;
             return;
         }
 
         element.textContent = "..."; // Display loading state indicator placeholders
-        const translatedResult = await translateText(originalText, lang);
-        element.textContent = translatedResult;
+        
+        try {
+            // Using the library: translate(text, { from: "en", to: targetLanguage })
+            const translatedResult = await translate(originalText, { from: "en", to: apiLang });
+            element.textContent = translatedResult;
+        } catch (error) {
+            console.error("Module translation failure:", error);
+            element.textContent = originalText; // Fallback to original text on error
+        }
     });
 
     await Promise.all(translationPromises);
-    document.documentElement.lang = getApiLangCode(lang);
+    
+    // Handle RTL orientation adjustments dynamically for Arabic
+    if (lang === 'ar') {
+        document.documentElement.dir = "rtl";
+    } else {
+        document.documentElement.dir = "ltr";
+    }
+    
+    document.documentElement.lang = apiLang;
 }
 
 // Initial state execution configuration
