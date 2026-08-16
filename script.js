@@ -44,7 +44,7 @@ const translations = {
         pref_header: "விருப்பத்தேர்வுகள்",
         pref_lang: "மொழி",
         site_progress: "இந்த இணையதளம் உருவாக்கத்தில் உள்ளது.",
-        footer_rights: "© 2026, சனித்து மற்றும் நிக்கி182. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவ"
+        footer_rights: "© 2026, சனித்து மற்றும் நிக்கி182. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
     },
     ja: {
         nav_home: "ホームページ",
@@ -54,6 +54,15 @@ const translations = {
         pref_lang: "言語",
         site_progress: "このウェブサイトは現在制作中です。",
         footer_rights: "© 2026 Chanithu および Niki182。無断複写・転載を禁じます。"
+    },
+    sn: {
+        nav_home: "මුල් පිටුව",
+        nav_download: "භාගත කරන්න",
+        nav_settings: "සැකසුම්",
+        pref_header: "මනාපයන්",
+        pref_lang: "භාෂාව",
+        site_progress: "මෙම වෙබ් අඩවිය නිර්මාණය වෙමින් පවතී.",
+        footer_rights: "© 2026, චනිතු සහ නිකී182. සියලුම හිමිකම් ඇවිරිණි."
     }
 };
 
