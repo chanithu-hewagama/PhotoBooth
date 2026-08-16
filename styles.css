@@ -41,6 +41,8 @@ body {
 
 /* end of navbar lol*/
 .web-body {
+  margin-top: 14px;
   background-color: #383b4f;
   padding: 10px 20px;
+  gap: 25px;
 }
