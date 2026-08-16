@@ -1,4 +1,4 @@
-// Translation Dictionary Matrix Dataset mapping keys to languages
+// Translation Dataset Matrix
 const translations = {
     en: {
         nav_home: "Home",
@@ -38,10 +38,7 @@ const translations = {
     }
 };
 
-/**
- * Iterates through all translatable class target blocks 
- * and maps the selected text from the translation dictionary matrix.
- */
+// Core Translation Target Iterator Engine
 function applyTranslations(lang) {
     const translatableElements = document.querySelectorAll('.translatable');
     
@@ -53,27 +50,25 @@ function applyTranslations(lang) {
         }
     });
 
-    // Update document root metadata standard tag
     document.documentElement.lang = lang;
 }
 
-// Initialization Logic Lifecycle Events
-document.addEventListener("DOMContentLoaded", () => {
-    const languageSelector = document.getElementById('nav-lang');
+// Immediate Execution (Safe to call directly because script has 'defer' attribute)
+const languageSelector = document.getElementById('nav-lang');
 
-    // Load previously saved language preference from localStorage or fallback to English
+if (languageSelector) {
+    // Load previously saved language preference or fallback to English
     const savedLanguage = localStorage.getItem('photoBoothLang') || 'en';
     
-    // Set current state on selector UI control
     languageSelector.value = savedLanguage;
     applyTranslations(savedLanguage);
 
-    // Event Listener listening for selector switch modifications
+    // Watch selector box for changes
     languageSelector.addEventListener('change', (event) => {
         const selectedLang = event.target.value;
-        
-        // Cache the option value inside local Storage layer
         localStorage.setItem('photoBoothLang', selectedLang);
         applyTranslations(selectedLang);
     });
-});
+} else {
+    console.error("Language selector element (#nav-lang) was not found in the DOM.");
+}
