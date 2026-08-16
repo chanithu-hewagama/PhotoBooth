@@ -15,27 +15,17 @@
     <nav class="navbar">
       <div class="logo">Photobooth</div>
       <ul class="nav-links">
-        <li><a href="index.html" class="translatable" data-key="nav_home">Home</a></li>
-        <li><a href="download.html" class="translatable" data-key="nav_download">Download</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="download.html">Download</a></li>
         
         <!-- Top Right Settings Menu Dropdown -->
         <li class="settings-dropdown">
-          <button class="settings-trigger" aria-label="Settings">⚙️ <span class="translatable" data-key="nav_settings">Settings</span></button>
+          <button class="settings-trigger" aria-label="Settings">⚙️ Settings</button>
           <div class="dropdown-menu">
-            <div class="dropdown-header translatable" data-key="pref_header">Preferences</div>
+            <div class="dropdown-header">Preferences</div>
             <div class="dropdown-item">
-              <label for="nav-lang" class="translatable" data-key="pref_lang">Language</label>
-              <select id="nav-lang" class="nav-select">
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="fr">Français</option>
-                <option value="de">Deutsch</option>
-                <option value="ta">தமிழ்</option>
-                <option value="ja">日本語</option>
-                <option value="sn">සිංහල</option>
-                <option value="am">አማርኛ</option>
-                <option value="ar">عربي</option>
-              </select>
+              <!-- Google's auto-translator script attaches directly to this targeted empty div container box -->
+              <div id="google_translate_element"></div>
             </div>
           </div>
         </li>
@@ -45,17 +35,31 @@
       <!-- Top 10 website design fails -->
       <!-- <hr> -->
       <!-- oh, really? -->
-      <h1 class="translatable" data-key="site_progress">This website is in progress.</h1>
+      <h1>This website is in progress.</h1>
       <div class="loader"></div>
       <!-- yess, it is me, ketchup_on_hotdogs... -->
       <p id="tp"></p>
     </div>
       <footer>
       <hr>
-      <p class="translatable" data-key="footer_rights">&copy; 2026, Chanithu and Niki182. All rights reserved.</p>
+      <p>&copy; 2026, Chanithu and Niki182. All rights reserved.</p>
       </footer>
         <!-- Corrected script declarations at the very bottom of body -->
-    <script src="script.js" type="module"></script>
+    <script src="script.js" defer></script>
     <script src="loading-circle.js" defer></script>
+
+    <!-- GOOGLE ENGINE INITIALIZER: Connects your dropdown layout instantly to Google servers -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          // Automatically maps the specific set of global language modules you want active
+          includedLanguages: 'en,es,fr,de,ta,ja,si,am,ar', 
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: true
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://google.com"></script>
   </body>
 </html>
