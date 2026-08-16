@@ -21,12 +21,12 @@ body {
   padding: 0;
 }
 
-.navlinks a {
+.navlinks li a {
   color: white;
   text-decoration: none;
 }
 
-.navlinks a:hover {
+.navlinks li a:hover {
   color: cyan;
   text-decoration: underline;
 }
