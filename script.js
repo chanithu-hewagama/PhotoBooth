@@ -1,9 +1,9 @@
 // Import the translation engine directly from the jsDelivr CDN link
-import translate from "https://cdn.jsdelivr.net/npm/translate/index.min.js";
+import translate from "https://jsdelivr.net";
 
-// Optional: You can specify a backup engine like "google" or "deepl" if you have a key,
-// but leaving it blank or setting it to "libre" runs on free open mirrors automatically.
+// FIXED: Using the exact official argosopentech domain matching structure
 translate.engine = "libre"; 
+translate.url = "https://argosopentech.com";
 
 /**
  * Normalizes custom dropdown values to strict ISO language codes
