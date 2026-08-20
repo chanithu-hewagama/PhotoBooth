@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #44475A;
+  background: linear-gradient(180deg, #004b9a, #282A36);
   color: white;
   padding: 15px 30px;
 }
@@ -46,4 +46,13 @@ body {
   width: 98%;
   height: auto;
   margin: 12px auto;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+button:hover {
+    transform: translateY(-2px);
 }
