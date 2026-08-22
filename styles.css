@@ -58,3 +58,12 @@ button {
 button:hover {
   transform: scale(1.1);
 }
+
+.navbar-other {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #004b9a;
+  color: white;
+  padding: 15px 30px;
+}
