@@ -11,17 +11,28 @@
     <link rel="stylesheet" href="loader.css">
   </head>
   <body>
+    <nav class="navbar-top">
+      <ul class="nav-links" style="height: 100px;">
+        <div class="logo" style="margin-top: 80px;">Photobooth</div>
+      </ul>
+    </nav>
+  <body>
     <nav class="navbar">
-      <div class="logo">Photobooth</div>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="download.html"">Download</a></li>
-
+        <li><a href="download.html">Download</a></li>
+      </ul>
+    </nav>
+    <nav class="navbar-other">
+      <ul class="nav-links">
+        <!-- Top Right Settings Menu Dropdown -->
         <li class="settings-dropdown">
           <button class="settings-trigger" aria-label="Settings">⚙️ Settings</button>
           <div class="dropdown-menu">
-            <div class="dropdown-header>Preferences</div>
+            <div class="dropdown-header">Preferences</div>
             <div class="dropdown-item">
+              <!-- Google's auto-translator script attaches directly to this targeted empty div container box -->
               <div id="google_translate_element"></div>
             </div>
           </div>
