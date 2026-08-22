@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #282A36;
-  color: white;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 /* navbar */
@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, #004b9a, #282A36);
+  background: linear-gradient(180deg, #0074f0, #004b9a);
   color: white;
   padding: 15px 30px;
 }
@@ -42,17 +42,19 @@ body {
 /* end of navbar lol*/
 .web-body {
   padding: 7px;
-  background-color: #383b4f;
+  background-color: #dedede;
   width: 98%;
   height: auto;
   margin: 12px auto;
 }
 
 button {
-    border: 1px solid black;
-    border-radius: 5px;
+  background: linear-gradient(180deg, #b7b4b4, #fff);
+  border: 1px solid black;
+  border-radius: 5px;
+  color: rgb(84, 84, 84);
 }
 
 button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
