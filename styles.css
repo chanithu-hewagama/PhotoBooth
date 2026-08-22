@@ -10,9 +10,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, #0074f0, #004b9a);
+  background: linear-gradient(180deg, #0064cf, #00458e);
   color: white;
   padding: 15px 30px;
+  height: 5px;
 }
 
 .nav-links {
@@ -29,14 +30,20 @@ body {
 }
 
 .nav-links a:hover {
-  color: cyan;
+  color: rgb(0, 183, 255);
   text-decoration: underline;
 }
 
 .logo {
+  font-style: italic;
   font-weight: 800;
   font-size: 20px;
   color: cyan;
+}
+
+.logo:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 4px rgb(0, 213, 213);
 }
 
 /* end of navbar lol*/
@@ -63,7 +70,16 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #004b9a;
+  background: #004288;
+  color: white;
+  padding: 15px 30px;
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180deg, #0063cc, #004fa3 70%);
   color: white;
   padding: 15px 30px;
 }
