@@ -84,3 +84,8 @@ button:hover {
   color: white;
   padding: 15px 30px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
