@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- metadata -->
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhotoBooth: An Open-Source, Free C++ Game Engine for C++ Beginners and Experts in the Field.">
+    <title>PhotoBooth | The Modern Engine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <nav class="navbar-top">
+      <ul class="nav-links" style="height: 15px;">
+        <div class="logo">Photobooth</div>
+      </ul>
+    </nav>
+  <body>
+    <nav class="navbar">
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="download.html">Download</a></li>
+      </ul>
+    </nav>
+    <nav class="navbar-other">
+      <ul class="nav-links">
+        <!-- Top Right Settings Menu Dropdown -->
+        <li class="settings-dropdown">
+          <button class="settings-trigger" aria-label="Settings"><i class="fas fa-cog"></i> Settings</button>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">Preferences</div>
+            <div class="dropdown-item">
+              <!-- Google's auto-translator script attaches directly to this targeted empty div container box -->
+              <div id="google_translate_element"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="web-body">
+      <dl>
+      <dt><a href="https://github.com/chanithu-hewagama" title="Creator's Github">Chanithu</a></dt>
+        <dd>Creator of the Game Engine.</dd>
+      <dt><a href="https://github.com/Niki182" title="Website Creator's Github">Niki182</a></dt>
+        <dd>Creator of this Website.</dd>
+      <dt><a href="https://scratch.mit.edu/users/Ricky-Jan" title="Physics engine Creator's Scratch page">Ricky Jan</a></dt>
+        <dd>Creator of the Physics Engine.</dd>
+      </dl>
+    </div>
+      <footer>
+      <hr>
+      <p>&copy; 2026, Chanithu and Niki182. All rights reserved.</p>
+      </footer>
+        <!-- Corrected script declarations at the very bottom of body -->
+    <script src="script.js" defer></script>
+    <script src="loading-circle.js" defer></script>
+
+    <!-- GOOGLE ENGINE INITIALIZER: Connects your dropdown layout instantly to Google servers -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          // Automatically maps the specific set of global language modules you want active
+          includedLanguages: 'aa,ab,ae,af,ak,am,an,ar,as,av,ay,az,ba,be,bg,bh,bi,bm,bn,bo,br,bs,ca,ce,ch,co,cr,cs,cu,cv,cy,da,de,dv,dz,ee,el,en,eo,es,et,eu,fa,ff,fi,fj,fo,fr,fy,ga,gd,gl,gn,gu,gv,ha,he,hi,ho,hr,ht,hu,hy,hz,ia,id,ie,ig,ii,ik,io,is,it,iu,ja,jv,ka,kg,ki,kj,kk,kl,km,kn,ko,kr,ks,ku,kv,kw,ky,la,lb,lg,li,ln,lo,lt,lu,lv,mg,mh,mi,mk,ml,mn,mr,ms,mt,my,na,nb,nd,ne,ng,nl,nn,no,nr,nv,ny,oc,oj,om,or,os,pa,pi,pl,ps,pt,qu,rm,rn,ro,ru,rw,sa,sc,sd,se,sg,si,sk,sl,sm,sn,so,sq,sr,ss,st,su,sv,sw,ta,te,tg,th,ti,tk,tl,tn,to,tr,ts,tt,tw,ty,ug,uk,ur,uz,ve,vi,vo,wa,wo,xh,yi,yo,za,zh,zu', 
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: true
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>
