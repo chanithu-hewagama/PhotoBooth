@@ -85,6 +85,9 @@ button:hover {
   padding: 15px 30px;
 }
 
+.margin-text {
+  margin-left: 10px;
+}
 .no-underline {
   text-decoration: none;
   color: black;
