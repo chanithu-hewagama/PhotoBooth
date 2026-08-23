@@ -85,7 +85,7 @@ button:hover {
   padding: 15px 30px;
 }
 
-a {
+.no-underline {
   text-decoration: none;
   color: black;
 }
