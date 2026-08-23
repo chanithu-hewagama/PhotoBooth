@@ -39,6 +39,7 @@ body {
   font-weight: 800;
   font-size: 20px;
   color: cyan;
+  cursor: pointer;
 }
 
 .logo:hover {
@@ -61,6 +62,7 @@ button {
   border: 1px solid black;
   border-radius: 5px;
   color: rgb(84, 84, 84);
+  cursor: pointer;
 }
 
 button:hover {
