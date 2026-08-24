@@ -1,7 +1,7 @@
 // Hello
 
-const settingsBtn = document.getElementById('settingsBtn');
-const dropdownMenu = document.getElementById('dropdownMenu');
+const settingsBtn = document.getElementById('settings-trigger');
+const dropdownMenu = document.getElementById('dropdown-menu');
 
 settingsBtn.addEventListener('click', (event) => {
   event.stopPropagation();
