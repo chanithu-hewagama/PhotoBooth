@@ -12,11 +12,18 @@ settingsBtn.addEventListener('click', (event) => {
 
 dropdownMenu.addEventListener('click', (event) => {
   event.stopPropagation();
-  if (event.target.closest('a, span, [role="button"]')) {
+  
+  const item = event.target.closest('a, [role="option"], .goog-te-menu2-item');
+  if (item && !item.classList.contains('goog-te-menu-value')) {
     dropdownMenu.style.display = 'none';
   }
 });
 
-document.addEventListener('click', () => {
+document.addEventListener('click', (event) => {
+  const isFrameClick = event.target.closest && event.target.closest('.goog-te-menu-frame');
+  if (isFrameClick) {
+    dropdownMenu.style.display = 'none';
+    return;
+  }
   dropdownMenu.style.display = 'none';
 });
