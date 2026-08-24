@@ -12,11 +12,8 @@ settingsBtn.addEventListener('click', (event) => {
 
 dropdownMenu.addEventListener('click', (event) => {
   event.stopPropagation();
-  
-  if (event.target.closest('.goog-te-gadget') || event.target.closest('a') || event.target.closest('span')) {
-    if (event.target.id !== 'google_translate_element') {
-      dropdownMenu.style.display = 'none';
-    }
+  if (event.target.closest('a, span, [role="button"]')) {
+    dropdownMenu.style.display = 'none';
   }
 });
 
